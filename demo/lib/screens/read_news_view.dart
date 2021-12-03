@@ -1,7 +1,8 @@
-import 'package:demo/models/news.dart';
-import 'package:demo/widgets/constants.dart';
+import 'package:demo/constants.dart';
+import 'package:demo/data/news.dart';
+import 'package:demo/widgets/circle_button.dart';
 import 'package:flutter/material.dart';
-import 'package:circle_button/circle_button.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class ReadNewsView extends StatelessWidget {
   final News news;
@@ -19,13 +20,16 @@ class ReadNewsView extends StatelessWidget {
               child: Row(
                 children: [
                   CircleButton(
+                    icon: Icons.arrow_back_ios,
                     onTap: () => Navigator.pop(context),
                   ),
                   Spacer(),
                   CircleButton(
+                    icon: Icons.share,
                     onTap: () {},
                   ),
                   CircleButton(
+                    icon: Icons.favorite_border,
                     onTap: () {},
                   ),
                 ],
@@ -112,10 +116,7 @@ class ReadNewsView extends StatelessWidget {
               ],
             ),
             SizedBox(height: 15.0),
-            Text(
-              news.content,
-              style: descriptionStyle,
-            ),
+            Html(data: news.content),
             SizedBox(height: 25.0)
           ],
         ),

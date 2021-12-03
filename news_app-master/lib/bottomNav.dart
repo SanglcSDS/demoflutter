@@ -62,19 +62,19 @@ class NavBarItem {
 
 List<NavBarItem> _navBarList = [
   NavBarItem(
-    icon: Icon(Icons.contacts),
-    title: "Home",
+    icon: Icon(Icons.home),
+    title: "Trang chủ",
+  ),
+  NavBarItem(
+    icon: Icon(Icons.new_label_sharp),
+    title: "Giới thiệu",
   ),
   NavBarItem(
     icon: Icon(Icons.contacts),
-    title: "Search",
+    title: "Tin tức",
   ),
   NavBarItem(
     icon: Icon(Icons.contacts),
-    title: "Favorite",
-  ),
-  NavBarItem(
-    icon: Icon(Icons.contacts),
-    title: "Account",
+    title: "Thư viện",
   ),
 ];

@@ -1,4 +1,9 @@
-import 'package:demo/screens/homedemo.dart';
+import 'package:demo/constants.dart';
+import 'package:demo/screens/Libraries.dart';
+import 'package:demo/screens/homeScreen.dart';
+import 'package:demo/screens/learning.dart';
+import 'package:demo/screens/news.dart';
+import 'package:demo/screens/profile.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
@@ -10,7 +15,8 @@ class _BottomNavState extends State<BottomNav> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
-    Homes(),
+    Profile(),
+    News(),
     Libraries(),
     Learning(),
   ];
@@ -30,53 +36,35 @@ class _BottomNavState extends State<BottomNav> {
         child: BottomNavigationBar(
           elevation: 0,
           selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.black,
+          unselectedItemColor: kGrey1,
           showSelectedLabels: true,
           showUnselectedLabels: true,
           onTap: onTabTapped,
-          currentIndex:
-              _currentIndex, // this will be set when a new tab is tapped
+          currentIndex: _currentIndex,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.video_call_rounded),
-              label: "Settings",
+              icon: Icon(Icons.person),
+              label: "Giới thiệu",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
+              icon: Icon(Icons.book),
+              label: 'Tin tức',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
+              icon: Icon(Icons.library_add),
+              label: 'Thư viện',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.library_add),
+              label: 'E-Learning',
             )
           ],
         ),
       ),
     );
-  }
-}
-
-class Homes extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text("Homes"));
-  }
-}
-
-class Libraries extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text("Libraries"));
-  }
-}
-
-class Learning extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text("Learning"));
   }
 }

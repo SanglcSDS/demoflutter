@@ -1,5 +1,5 @@
-import 'package:demo/screens/bottomNav.dart';
-import 'package:demo/screens/popular_tab_view.dart';
+import 'package:demo/bottomNav.dart';
+import 'package:demo/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: PopularTabView(),
+      home: BottomNav(),
     );
   }
 }

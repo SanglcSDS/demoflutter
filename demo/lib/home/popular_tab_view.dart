@@ -1,6 +1,6 @@
-import 'package:demo/models/news.dart';
+import 'package:demo/constants.dart';
+import 'package:demo/data/news.dart';
 import 'package:demo/screens/read_news_view.dart';
-import 'package:demo/widgets/constants.dart';
 import 'package:demo/widgets/primary_card.dart';
 import 'package:demo/widgets/secondary_card.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +11,9 @@ class PopularTabView extends StatelessWidget {
     return Container(
       child: ListView(
         children: [
+          SizedBox(
+            height: 5.0,
+          ),
           Container(
             width: double.infinity,
             height: 300.0,
@@ -22,7 +25,14 @@ class PopularTabView extends StatelessWidget {
               itemBuilder: (context, index) {
                 var news = popularList[index];
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ReadNewsView(news: news),
+                      ),
+                    );
+                  },
                   child: Container(
                     margin: EdgeInsets.only(right: 12.0),
                     child: PrimaryCard(news: news),
@@ -40,31 +50,31 @@ class PopularTabView extends StatelessWidget {
                   style: kNonActiveTabStyle),
             ),
           ),
-          // ListView.builder(
-          //   itemCount: recentList.length,
-          //   scrollDirection: Axis.vertical,
-          //   shrinkWrap: true,
-          //   physics: ScrollPhysics(),
-          //   itemBuilder: (context, index) {
-          //     var recent = recentList[index];
-          //     return InkWell(
-          //       onTap: () {
-          //         Navigator.push(
-          //           context,
-          //           MaterialPageRoute(
-          //             builder: (context) => ReadNewsView(news: recent),
-          //           ),
-          //         );
-          //       },
-          //       child: Container(
-          //         width: double.infinity,
-          //         height: 135.0,
-          //         margin: EdgeInsets.symmetric(horizontal: 18.0, vertical: 8.0),
-          //         child: SecondaryCard(news: recent),
-          //       ),
-          //     );
-          //   },
-          // )
+          ListView.builder(
+            itemCount: recentList.length,
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            physics: ScrollPhysics(),
+            itemBuilder: (context, index) {
+              var recent = recentList[index];
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ReadNewsView(news: recent),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 135.0,
+                  margin: EdgeInsets.symmetric(horizontal: 18.0, vertical: 8.0),
+                  child: SecondaryCard(news: recent),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
