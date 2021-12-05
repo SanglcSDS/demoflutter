@@ -1,7 +1,7 @@
 import 'package:demo/bottomNav.dart';
 import 'package:demo/constants.dart';
 import 'package:demo/data/news.dart';
-import 'package:demo/screens/read_news_view.dart';
+import 'package:demo/widgets/read_news_view.dart';
 import 'package:demo/widgets/circle_button.dart';
 import 'package:demo/widgets/primary_card.dart';
 import 'package:demo/widgets/secondary_card.dart';

@@ -3,7 +3,7 @@ import 'package:demo/screens/Libraries.dart';
 import 'package:demo/screens/homeScreen.dart';
 import 'package:demo/screens/learning.dart';
 import 'package:demo/screens/news.dart';
-import 'package:demo/screens/profile.dart';
+import 'package:demo/screens/Introduce_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
@@ -15,7 +15,7 @@ class _BottomNavState extends State<BottomNav> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
-    Profile(),
+    IntroduceView(),
     News(),
     Libraries(),
     Learning(),

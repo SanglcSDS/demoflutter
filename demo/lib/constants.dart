@@ -5,11 +5,18 @@ const kGrey1 = Color(0xFF9F9F9F);
 const kGrey2 = Color(0xFF6D6D6D);
 const kGrey3 = Color(0xFFEAEAEA);
 const kBlack = Color(0xFF1C1C1C);
+const kBlue1 = Color(0xff339AFF);
 
 var kNonActiveTabStyle = GoogleFonts.roboto(
   textStyle: TextStyle(fontSize: 14.0, color: kGrey1),
 );
-
+var kNonActiveTabStyles = GoogleFonts.roboto(
+  textStyle: TextStyle(
+    fontSize: 16.0,
+    color: kBlue1,
+    fontWeight: FontWeight.w900,
+  ),
+);
 var kActiveTabStyle = GoogleFonts.roboto(
   textStyle: TextStyle(
     fontSize: 16.0,

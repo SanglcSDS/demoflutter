@@ -1,7 +1,7 @@
 import 'package:demo/bottomNav.dart';
 import 'package:demo/constants.dart';
 import 'package:demo/data/news.dart';
-import 'package:demo/screens/read_news_view.dart';
+import 'package:demo/widgets/read_news_view.dart';
 import 'package:demo/widgets/circle_button.dart';
 import 'package:demo/widgets/secondary_card.dart';
 import 'package:flutter/material.dart';
@@ -36,12 +36,18 @@ class Learning extends StatelessWidget {
                   child: TabBar(
                     tabs: [
                       Row(children: [
-                        Text("Tin tức chương trình",
-                            style: TextStyle(color: kGrey1))
+                        Text(
+                          "Tin tức chương trình",
+                          style: TextStyle(color: kGrey1),
+                          overflow: TextOverflow.ellipsis,
+                        )
                       ]),
                       Row(children: [
-                        Text("Tin tức môi trường",
-                            style: TextStyle(color: kGrey1))
+                        Text(
+                          "Tin tức môi trường",
+                          style: TextStyle(color: kGrey1),
+                          overflow: TextOverflow.ellipsis,
+                        )
                       ]),
                     ],
                     labelPadding: EdgeInsets.all(15),

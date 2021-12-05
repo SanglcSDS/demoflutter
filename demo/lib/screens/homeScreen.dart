@@ -1,10 +1,11 @@
 import 'package:demo/constants.dart';
 import 'package:demo/home/Introduce.dart';
 import 'package:demo/data/news.dart';
-import 'package:demo/screens/read_news_view.dart';
+import 'package:demo/widgets/read_news_view.dart';
 import 'package:demo/home/slide_imgae.dart';
 import 'package:demo/widgets/primary_card.dart';
 import 'package:demo/widgets/secondary_card.dart';
+import 'package:demo/widgets/title_widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -43,13 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 SlideImage(image: images),
                 Introduce(),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 19.0),
-                    child: Text("TIN TỨC", style: kNonActiveTabStyle),
-                  ),
-                ),
+                TitleWidgets(title: "TIN TỨC", widget: HomeScreen()),
                 ListView.builder(
                   itemCount: recentList.length,
                   scrollDirection: Axis.vertical,
@@ -75,30 +70,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                 ),
-                Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
-                  decoration: BoxDecoration(
-                    //  borderRadius: BorderRadius.circular(5.0),
-                    border: Border(
-                      top: BorderSide(
-                        width: 1.0,
-                        color: kGrey3,
+                TitleWidgetsNext(title: "Xem thêm", widget: HomeScreen()),
+                ListView.builder(
+                  itemCount: recentList.length,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: ScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    var recent = recentList[index];
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ReadNewsView(news: recent),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 135.0,
+                        margin: EdgeInsets.symmetric(horizontal: 18.0),
+                        child: SecondaryCard(news: recent),
                       ),
-                    ),
-
-                    //.all(color: kGrey3, width: 1.0),
-                  ),
+                    );
+                  },
                 ),
-                // SizedBox(height: 5.0),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 19.0),
-                    child: Text("THƯ VIỆN ẢNH", style: kNonActiveTabStyle),
-                  ),
-                ),
-                SizedBox(height: 5.0),
+                TitleWidgetsNext(title: "Xem thêm", widget: HomeScreen()),
+                TitleWidgets(title: "THƯ VIỆN ẢNH", widget: HomeScreen()),
                 Container(
                   width: double.infinity,
                   height: 300.0,
@@ -129,27 +128,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 8.0),
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
                   decoration: BoxDecoration(
-                    //  borderRadius: BorderRadius.circular(5.0),
                     border: Border(
                       top: BorderSide(
                         width: 1.0,
                         color: kGrey3,
                       ),
                     ),
-
-                    //.all(color: kGrey3, width: 1.0),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 19.0),
-                    child: Text("THƯ VIỆN VIDEO", style: kNonActiveTabStyle),
-                  ),
-                ),
-                SizedBox(height: 3.0),
+                TitleWidgets(title: "THƯ VIỆN VIDEO", widget: HomeScreen()),
                 Container(
                   width: double.infinity,
                   height: 300.0,

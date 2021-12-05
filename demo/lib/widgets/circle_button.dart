@@ -2,9 +2,10 @@ import 'package:demo/constants.dart';
 import 'package:flutter/material.dart';
 
 class CircleButton extends StatelessWidget {
+  final Color colors;
   final IconData icon;
   final Function onTap;
-  CircleButton({this.icon, this.onTap});
+  CircleButton({this.colors, this.icon, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class CircleButton extends StatelessWidget {
           ),
           child: Icon(
             icon,
-            color: kGrey2,
+            color: colors,
             size: 15.0,
           ),
         ),
